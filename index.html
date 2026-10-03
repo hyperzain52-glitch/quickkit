@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickKit - Free Online Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 22px;
+      text-align: center;
+      background: #111827;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 18px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 35px 10px;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .tool {
+      background: #1e293b;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #334155;
+    }
+
+    .tool h3 {
+      margin-bottom: 10px;
+    }
+
+    .tool p {
+      color: #cbd5e1;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #94a3b8;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>QuickKit</h1>
+    <p>Free Online Tools for Everyday Use</p>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <h2>Simple Tools. Fast Results.</h2>
+      <p>
+        QuickKit provides useful online tools that are simple,
+        fast and free to use.
+      </p>
+    </section>
+
+    <section class="tools">
+
+      <div class="tool">
+        <h3>🔢 Percentage Calculator</h3>
+        <p>Calculate percentages quickly and easily.</p>
+        <button onclick="percentage()">Open Tool</button>
+      </div>
+
+      <div class="tool">
+        <h3>🔤 Word Counter</h3>
+        <p>Count words and characters in your text.</p>
+        <button onclick="wordCounter()">Open Tool</button>
+      </div>
+
+      <div class="tool">
+        <h3>📏 Unit Converter</h3>
+        <p>Convert kilometres to miles instantly.</p>
+        <button onclick="unitConverter()">Open Tool</button>
+      </div>
+
+      <div class="tool">
+        <h3>🎂 Age Calculator</h3>
+        <p>Calculate your age from your birth year.</p>
+        <button onclick="ageCalculator()">Open Tool</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 QuickKit. Free online tools.
+  </footer>
+
+  <script>
+    function percentage() {
+      let number = prompt("Enter the number:");
+      let percent = prompt("Enter the percentage:");
+
+      if (number !== null && percent !== null) {
+        alert(percent + "% of " + number + " = " + (number * percent / 100));
+      }
+    }
+
+    function wordCounter() {
+      let text = prompt("Enter your text:");
+
+      if (text !== null) {
+        let words = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+        let characters = text.length;
+
+        alert("Words: " + words + "\nCharacters: " + characters);
+      }
+    }
+
+    function unitConverter() {
+      let km = prompt("Enter kilometres:");
+
+      if (km !== null) {
+        alert(km + " km = " + (km * 0.621371).toFixed(2) + " miles");
+      }
+    }
+
+    function ageCalculator() {
+      let year = prompt("Enter your birth year:");
+      let currentYear = new Date().getFullYear();
+
+      if (year !== null) {
+        alert("Your approximate age is " + (currentYear - year) + " years.");
+      }
+    }
+  </script>
+
+</body>
+</html>
