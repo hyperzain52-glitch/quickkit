@@ -154,14 +154,57 @@
 
   <script>
     function percentage() {
-      let number = prompt("Enter the number:");
-      let percent = prompt("Enter the percentage:");
+    let choice = prompt(
+        "Percentage Calculator\n\n" +
+        "1 = X ka Y% kitna hai?\n" +
+        "2 = X, Y ka kitna % hai?\n" +
+        "3 = Percentage Increase/Decrease"
+    );
 
-      if (number !== null && percent !== null) {
-        alert(percent + "% of " + number + " = " + (number * percent / 100));
-      }
+    if (choice === null) return;
+
+    if (choice === "1") {
+        let number = parseFloat(prompt("Number enter karo:"));
+        let percent = parseFloat(prompt("Percentage enter karo:"));
+
+        if (!isNaN(number) && !isNaN(percent)) {
+            alert(percent + "% of " + number + " = " + (number * percent / 100));
+        } else {
+            alert("Please valid numbers enter karo.");
+        }
+
+    } else if (choice === "2") {
+        let x = parseFloat(prompt("Pehla number enter karo:"));
+        let y = parseFloat(prompt("Doosra number enter karo:"));
+
+        if (!isNaN(x) && !isNaN(y) && y !== 0) {
+            alert(x + " is " + (x / y * 100) + "% of " + y);
+        } else {
+            alert("Please valid numbers enter karo.");
+        }
+
+    } else if (choice === "3") {
+        let oldValue = parseFloat(prompt("Old value enter karo:"));
+        let newValue = parseFloat(prompt("New value enter karo:"));
+
+        if (!isNaN(oldValue) && !isNaN(newValue) && oldValue !== 0) {
+            let change = ((newValue - oldValue) / oldValue) * 100;
+
+            if (change > 0) {
+                alert("Percentage Increase: " + change.toFixed(2) + "%");
+            } else if (change < 0) {
+                alert("Percentage Decrease: " + Math.abs(change).toFixed(2) + "%");
+            } else {
+                alert("No percentage change.");
+            }
+        } else {
+            alert("Please valid numbers enter karo.");
+        }
+
+    } else {
+        alert("Please 1, 2, ya 3 select karo.");
     }
-
+    }
     function wordCounter() {
       let text = prompt("Enter your text:");
 
