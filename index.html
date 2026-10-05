@@ -139,10 +139,66 @@
       </div>
 
       <div class="tool">
-        <h3>🎂 Age Calculator</h3>
-        <p>Calculate your age from your birth year.</p>
-        <button onclick="ageCalculator()">Open Tool</button>
-      </div>
+  <h2>Percentage Calculator</h2>
+  <p>Calculate percentages quickly and easily.</p>
+
+  <label>What do you want to calculate?</label>
+  <select id="percentageType">
+    <option value="1">X ka Y% kitna hai?</option>
+    <option value="2">X, Y ka kitna % hai?</option>
+    <option value="3">Percentage Increase / Decrease</option>
+  </select>
+
+  <input type="number" id="percentageNumber1" placeholder="Enter first number">
+  <input type="number" id="percentageNumber2" placeholder="Enter second number">
+
+  <button onclick="calculatePercentage()">Calculate</button>
+
+  <div id="percentageResult"></div>
+</div>
+
+<script>
+function calculatePercentage() {
+  const type = document.getElementById("percentageType").value;
+  const first = parseFloat(document.getElementById("percentageNumber1").value);
+  const second = parseFloat(document.getElementById("percentageNumber2").value);
+  const result = document.getElementById("percentageResult");
+
+  if (isNaN(first) || isNaN(second)) {
+    result.innerText = "Please enter valid numbers.";
+    return;
+  }
+
+  if (type === "1") {
+    result.innerText = second + "% of " + first + " = " + (first * second / 100);
+  }
+
+  if (type === "2") {
+    if (second === 0) {
+      result.innerText = "Second number cannot be 0.";
+      return;
+    }
+    result.innerText = first + " is " + ((first / second) * 100).toFixed(2) + "% of " + second;
+  }
+
+  if (type === "3") {
+    if (first === 0) {
+      result.innerText = "First number cannot be 0.";
+      return;
+    }
+
+    const change = ((second - first) / first) * 100;
+
+    if (change > 0) {
+      result.innerText = "Percentage Increase: " + change.toFixed(2) + "%";
+    } else if (change < 0) {
+      result.innerText = "Percentage Decrease: " + Math.abs(change).toFixed(2) + "%";
+    } else {
+      result.innerText = "No percentage change.";
+    }
+  }
+}
+</script>
 
     </section>
 
